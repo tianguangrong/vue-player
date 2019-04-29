@@ -66,7 +66,9 @@
             <p class="desc" v-html="currentSong.singer"></p>
           </div>
           <div class="control">
-            <i :class="miniIcon"  @click.stop="togglePlaying"></i>
+            <progress-circle :width="width" :height="height" :percent="percent" :dasharrayCircle="circle">
+              <i :class="miniIcon"  @click.stop="togglePlaying"></i>
+            </progress-circle>
           </div>
           <div class="control">
             <i class="icon-playlist"></i>
@@ -77,11 +79,12 @@
                @canplay="ready"
                @error="error"
                @timeupdate="updateTime"
-               src="http://220.181.91.162/amobile.music.tc.qq.com/C400003rQsOS20MHd4.m4a?guid=1101858872&vkey=EAF7285F0DC842419A9F151BD68B8F76A2F860A5A76C88D04D5975BADF5F764B181DBDF5DF8CE101C59CFD8DA6E82F3F0B92ADEF6983355F&uin=0&fromtag=66"></audio>
+               src="http://fs.w.kugou.com/201904291529/c2bdac165ea024998c6c8dfac004e995/G085/M07/0B/10/lQ0DAFujV42AK4xpACkHR2d9qTo587.mp3"></audio>
     </div>
 </template>
 
 <script>
+import ProgressCircle from 'base/progress-circle/progress-circle'
 import { mapGetters, mapMutations } from 'vuex'
 import animations from 'create-keyframe-animation'
 import { prefixStyle } from 'common/js/dom'
@@ -92,11 +95,15 @@ export default {
   data() {
     return {
       songReady: false,
-      currentTime: 0
+      currentTime: 0,
+      circle: 314,
+      width:32,
+      heigt:32
     }
   },
   components: {
-    ProgressBar
+    ProgressBar,
+    ProgressCircle
   },
   computed: {
     playIcon() {
@@ -516,6 +523,8 @@ export default {
         .icon-play-mini, .icon-pause-mini, .icon-playlist
           font-size: 30px
           color: $color-theme-d
+          position relative
+          z-index 100
         .icon-mini
           font-size: 32px
           position: absolute
