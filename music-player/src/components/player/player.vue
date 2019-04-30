@@ -79,7 +79,7 @@
                @canplay="ready"
                @error="error"
                @timeupdate="updateTime"
-               src="http://fs.w.kugou.com/201904291529/c2bdac165ea024998c6c8dfac004e995/G085/M07/0B/10/lQ0DAFujV42AK4xpACkHR2d9qTo587.mp3"></audio>
+               src="http://www.170mv.com/kw/other.web.nf01.sycdn.kuwo.cn/resource/n2/46/20/1808635252.mp3"></audio>
     </div>
 </template>
 
@@ -97,8 +97,8 @@ export default {
       songReady: false,
       currentTime: 0,
       circle: 314,
-      width:32,
-      heigt:32
+      width: 32,
+      height: 32
     }
   },
   components: {
